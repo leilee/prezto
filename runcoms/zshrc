@@ -10,4 +10,30 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# Path
+export PATH="$PATH:$HOME/.bin"
+
+# Shortcut
+alias c='clear'
+
+# Proxy
+# Surge
+alias setproxy='export ALL_PROXY=http://127.0.0.1:6152'
+alias unsetproxy='unset ALL_PROXY'
+alias lookupip='curl -i http://ip.cn'
+
+# SIP 
+alias sipenable='sudo spctl --master-enable'
+alias sipdisable='sudo spctl --master-disable'
+
+# aria2c
+alias aria='aria2c -c -s10 -x10 -k1M'
+
+# DNS
+alias flushdns='sudo killall -HUP mDNSResponder'
+
+# gitignore.io
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+# git
+alias gcl='git clone --recursive'
