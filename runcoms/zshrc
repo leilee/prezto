@@ -39,9 +39,6 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 alias gcl='git clone --recursive'
 alias gst='git status'
 
-# rbenv
-eval "$(rbenv init -)"
-
 # colorls (https://github.com/athityakumar/colorls)
 alias lc='colorls'
 alias lcl='colorls -1'
