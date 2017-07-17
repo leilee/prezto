@@ -112,6 +112,11 @@ Node.js
 
 Provides utility functions for Node.js and loads npm completion.
 
+NVM
+---
+
+Lazy load nvm for faster shell start.
+
 OCaml
 -----
 
@@ -131,6 +136,11 @@ Perl
 ----
 
 Enables local Perl module installation on Mac OS X and defines alises.
+
+Pod
+---
+
+Defines CocoaPods aliases.
 
 Prompt
 ------

@@ -1,4 +1,4 @@
-nvm.sh
-========
+NVM
+===
 
-Lazy load nvm for faster shell start
+Lazy load nvm for faster shell start.
