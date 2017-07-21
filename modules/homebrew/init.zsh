@@ -10,6 +10,9 @@ if [[ "$OSTYPE" != (darwin|linux)* ]]; then
   return 1
 fi
 
+# Set homebrew editor
+export HOMEBREW_EDITOR=vim
+
 #
 # Aliases
 #
@@ -17,9 +20,11 @@ fi
 # Homebrew
 alias brewc='brew cleanup'
 alias brewC='brew cleanup --force'
+alias brewe='brew edit'
 alias brewi='brew install'
 alias brewl='brew list'
 alias brews='brew search'
+alias brewss='brew services'
 alias brewu='brew update && brew upgrade'
 alias brewx='brew remove'
 
