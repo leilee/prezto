@@ -20,6 +20,7 @@ export HOMEBREW_EDITOR=vim
 # Homebrew
 alias brewc='brew cleanup'
 alias brewC='brew cleanup --force'
+alias brewd='brew doctor'
 alias brewe='brew edit'
 alias brewi='brew install'
 alias brewl='brew list'
