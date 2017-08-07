@@ -96,40 +96,44 @@ if zstyle -T ':prezto:module:utility' safe-ops; then
 fi
 
 # ls
-if is-callable 'dircolors'; then
-  # GNU Core Utilities
-  alias ls='ls --group-directories-first'
-
-  if zstyle -t ':prezto:module:utility:ls' color; then
-    if [[ -s "$HOME/.dir_colors" ]]; then
-      eval "$(dircolors --sh "$HOME/.dir_colors")"
-    else
-      eval "$(dircolors --sh)"
-    fi
-
-    alias ls="${aliases[ls]:-ls} --color=auto"
-  else
-    alias ls="${aliases[ls]:-ls} -F"
-  fi
+if (( $+commands[exa] )); then
+  alias ls='exa'
 else
-  # BSD Core Utilities
-  if zstyle -t ':prezto:module:utility:ls' color; then
-    # Define colors for BSD ls.
-    export LSCOLORS='exfxcxdxbxGxDxabagacad'
+  if is-callable 'dircolors'; then
+    # GNU Core Utilities
+    alias ls='ls --group-directories-first'
 
-    # Define colors for the completion system.
-    export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
+    if zstyle -t ':prezto:module:utility:ls' color; then
+      if [[ -s "$HOME/.dir_colors" ]]; then
+        eval "$(dircolors --sh "$HOME/.dir_colors")"
+      else
+        eval "$(dircolors --sh)"
+      fi
 
-    alias ls="${aliases[ls]:-ls} -G"
+      alias ls="${aliases[ls]:-ls} --color=auto"
+    else
+      alias ls="${aliases[ls]:-ls} -F"
+    fi
   else
-    alias ls="${aliases[ls]:-ls} -F"
+    # BSD Core Utilities
+    if zstyle -t ':prezto:module:utility:ls' color; then
+      # Define colors for BSD ls.
+      export LSCOLORS='exfxcxdxbxGxDxabagacad'
+
+      # Define colors for the completion system.
+      export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
+
+      alias ls="${aliases[ls]:-ls} -G"
+    else
+      alias ls="${aliases[ls]:-ls} -F"
+    fi
   fi
 fi
 
-alias l='ls -1A'         # Lists in one column, hidden files.
+alias l='ls -a'         # Lists in one column, hidden files.
 alias ll='ls -lh'        # Lists human readable sizes.
 alias lr='ll -R'         # Lists human readable sizes, recursively.
-alias la='ll -A'         # Lists human readable sizes, hidden files.
+alias la='ll -a'         # Lists human readable sizes, hidden files.
 alias lm='la | "$PAGER"' # Lists human readable sizes, hidden files through pager.
 alias lx='ll -XB'        # Lists sorted by extension (GNU only).
 alias lk='ll -Sr'        # Lists sorted by size, largest last.
