@@ -12,10 +12,12 @@ fi
 
 # Path
 export PATH="$PATH:$HOME/.bin"
+export PATH="$PATH:$HOME/go/bin"
 
 # Shortcut
 alias c='clear'
 alias o='open'
+alias xcpath='$HOME/Library/Developer/Xcode/'
 
 # Proxy
 # Surge
@@ -41,3 +43,8 @@ alias giios='touch .gitignore && gi macos,xcode,appcode,cocoapods,carthage,swift
 alias gcl='git clone --recursive'
 alias gst='git status'
 
+# Utils
+# battery
+function battery() {
+    ioreg  -r -k "BatteryPercent" | awk -F " = " '/"Product" = / {print $2":"} /"BatteryPercent" = / {print $2"%"}' |  sed 'N;s/\n/ /;' | sed -e 's/"//g'
+}
