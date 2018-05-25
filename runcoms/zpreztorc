@@ -42,7 +42,8 @@ zstyle ':prezto:load' pmodule \
   'nvm' \
   'ruby' \
   'archive' \
-  'history-substring-search'
+  'history-substring-search' \
+  'fasd'
 
 #
 # Autosuggestions
