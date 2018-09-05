@@ -12,6 +12,7 @@ fi
 
 # workspace
 alias gw='git bulk -w'
-alias gwa='git bulk --addworkspace'
+alias gwa='git bulk --addcurrent'
 alias gwd='git bulk --removeworkspace'
+alias gwg='git bulk -g -w'
 alias gwl='git bulk --listall'
