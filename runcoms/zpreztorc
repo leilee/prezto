@@ -43,7 +43,8 @@ zstyle ':prezto:load' pmodule \
   'ruby' \
   'archive' \
   'history-substring-search' \
-  'fasd'
+  'fasd' \
+  'git-extras'
 
 #
 # Autosuggestions
