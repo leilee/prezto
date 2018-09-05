@@ -30,7 +30,7 @@ alias sipenable='sudo spctl --master-enable'
 alias sipdisable='sudo spctl --master-disable'
 
 # aria2c
-alias aria='aria2c -c -s10 -x10 -k1M'
+alias aria2_rpc='/usr/local/bin/aria2c --enable-rpc=true --input-file=/Users/edison/.aria2/aria2.session --conf-path=/Users/edison/.aria2/aria2.conf'
 
 # DNS
 alias flushdns='sudo killall -HUP mDNSResponder'
@@ -48,3 +48,26 @@ alias gst='git status'
 function battery() {
     ioreg  -r -k "BatteryPercent" | awk -F " = " '/"Product" = / {print $2":"} /"BatteryPercent" = / {print $2"%"}' |  sed 'N;s/\n/ /;' | sed -e 's/"//g'
 }
+
+# files
+# remove files recursively
+function rmfr() {
+	find $1 -type f -name $2 -delete
+}
+
+# hh
+export HISTFILE=~/.zsh_history  # ensure history file visibility
+export HH_CONFIG=hicolor        # get more colors
+bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+
+# theos
+export THEOS=/opt/theos
+export PATH=/opt/theos/bin/:$PATH
+
+# MonkeyDev
+export MonkeyDevPath=/opt/MonkeyDev
+export MonkeyDevDeviceIP=
+export PATH=/opt/MonkeyDev/bin:$PATH
+
+# rust
+export PATH="$HOME/.cargo/bin:$PATH"
