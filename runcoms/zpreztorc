@@ -37,14 +37,10 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'prompt' \
   'git' \
-  'homebrew' \
-  'pod' \
   'nvm' \
-  'ruby' \
-  'archive' \
   'history-substring-search' \
-  'fasd' \
-  'git-extras'
+  'git-extras' \
+  'z'
 
 #
 # Autosuggestions
