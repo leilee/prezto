@@ -49,16 +49,18 @@ function battery() {
     ioreg  -r -k "BatteryPercent" | awk -F " = " '/"Product" = / {print $2":"} /"BatteryPercent" = / {print $2"%"}' |  sed 'N;s/\n/ /;' | sed -e 's/"//g'
 }
 
+# cat
+alias cat=bat
+
 # files
 # remove files recursively
 function rmfr() {
 	find $1 -type f -name $2 -delete
 }
 
-# hh
-export HISTFILE=~/.zsh_history  # ensure history file visibility
-export HH_CONFIG=hicolor        # get more colors
-bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+function rmxcproj() {
+  find $1 -type f -name "*.xcodeproj" -delete
+}
 
 # theos
 export THEOS=/opt/theos
@@ -71,3 +73,6 @@ export PATH=/opt/MonkeyDev/bin:$PATH
 
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# fzf https://github.com/junegunn/fzf.git
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
